@@ -442,11 +442,21 @@ main > .section:first-of-type {
 }
 
 /* ========================================
-   Section Variants - Light Gray
+   Section Variants - Light Gray / Stone
    ======================================== */
 main .section.light,
-main .section.highlight {
-  background-color: var(--color-bg-light-gray);
+main .section.highlight,
+main .section.stone {
+  background-color: var(--color-bg-gray);
+  margin: 0;
+  padding: var(--section-padding) 0;
+}
+
+/* ========================================
+   Section Variants - Warm/Cream
+   ======================================== */
+main .section.warm {
+  background-color: var(--color-bg-warm);
   margin: 0;
   padding: var(--section-padding) 0;
 }
