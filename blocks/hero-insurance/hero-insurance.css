@@ -1,0 +1,47 @@
+.hero-insurance-container .hero-insurance-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.hero-insurance {
+  position: relative;
+  padding: 40px 24px;
+  min-height: 300px;
+}
+
+.hero-insurance h1,
+.hero-insurance h2,
+.hero-insurance h3,
+.hero-insurance h4,
+.hero-insurance h5,
+.hero-insurance h6,
+.hero-insurance p {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--background-color);
+}
+
+.hero-insurance.no-image * {
+  color: var(--text-color);
+}
+
+.hero-insurance picture {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  object-fit: cover;
+  box-sizing: border-box;
+}
+
+.hero-insurance img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+@media (width >= 900px) {
+  .hero-insurance {
+    padding: 40px 32px;
+  }
+}

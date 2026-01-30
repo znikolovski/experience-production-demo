@@ -1,0 +1,67 @@
+.table-forex.block {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table-forex.block table {
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  font-size: var(--body-font-size-xs);
+}
+
+@media (width >= 600px) {
+  .table-forex.block table {
+    font-size: var(--body-font-size-s);
+  }
+}
+
+@media (width >= 900px) {
+  .table-forex.block table {
+    font-size: var(--body-font-size-m);
+  }
+}
+
+.table-forex.block table thead tr {
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+}
+
+.table-forex.block table tbody tr {
+  border-bottom: 1px solid;
+}
+
+.table-forex.block table th {
+  font-weight: 700;
+}
+
+.table-forex.block table th,
+.table-forex.block table td {
+  padding: 0.5em;
+  text-align: left;
+}
+
+.table-forex table th p,
+.table-forex table td p {
+  margin: 0;
+}
+
+.table-forex table td p + p {
+  margin-top: 0.25em;
+}
+
+/* no header variant */
+.table-forex.block.no-header table tbody tr {
+  border-top: 1px solid;
+}
+
+/* striped variant */
+.table-forex.block.striped tbody tr:nth-child(odd) {
+  background-color: var(--overlay-background-color);
+}
+
+/* bordered variant */
+.table-forex.block.bordered table th,
+.table-forex.block.bordered table td {
+  border: 1px solid;
+}

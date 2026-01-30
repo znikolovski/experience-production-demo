@@ -1,0 +1,41 @@
+{
+  "variantName": "columns-appfeature",
+  "baseBlock": "columns",
+  "version": "1.0.0",
+  "created": "2026-01-28T03:48:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.racv.com.au/",
+    "originPage": "RACV homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "app-promotion",
+    "imagePattern": "right-image"
+  },
+  "contentPattern": {
+    "structure": "text content + feature list + buttons | phone mockup image",
+    "buttonCount": 2,
+    "imageCount": 1,
+    "columnCount": 2
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "app download promotions",
+      "product feature highlights",
+      "text + image side-by-side layouts"
+    ],
+    "notSuitableFor": [
+      "multi-column text only layouts",
+      "image galleries"
+    ]
+  },
+  "usage": {
+    "pagesUsing": [
+      "/content/index"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-01-29T22:05:17.493Z"
+  }
+}

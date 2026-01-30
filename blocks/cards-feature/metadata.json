@@ -1,0 +1,42 @@
+{
+  "variantName": "cards-feature",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-01-28T03:48:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.racv.com.au/",
+    "originPage": "RACV homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "standard",
+    "purpose": "feature-showcase",
+    "imagePattern": "top-image"
+  },
+  "contentPattern": {
+    "structure": "image + heading + description + CTA",
+    "buttonCount": 1,
+    "imageCount": 3,
+    "rowCount": 3,
+    "columnCount": 2
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "feature highlight cards",
+      "article teasers",
+      "service showcase grids"
+    ],
+    "notSuitableFor": [
+      "icon-only quick links",
+      "compact navigation grids"
+    ]
+  },
+  "usage": {
+    "pagesUsing": [
+      "/content/index"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-01-29T22:05:17.415Z"
+  }
+}

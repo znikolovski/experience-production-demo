@@ -1,0 +1,58 @@
+{
+  "templates": [
+    {
+      "name": "racv-homepage",
+      "urls": ["https://www.racv.com.au/"],
+      "description": "RACV homepage with hero insurance banner, quick links, product cards, app feature section, text columns, and article cards",
+      "blocks": [
+        {
+          "name": "hero-insurance",
+          "instances": [".herobanner .cmp-homepage-banner"]
+        },
+        {
+          "name": "cards-quicklinks",
+          "instances": [".cmp-homepage-banner-bottom .cmp-list", ".cmp-iconlist", ".support-links"]
+        },
+        {
+          "name": "cards-feature",
+          "instances": [".cmp-teaser-card-list", ".article-cards", ".explore-cards"]
+        },
+        {
+          "name": "columns-appfeature",
+          "instances": [".app-download-section", ".cmp-app-promo"]
+        },
+        {
+          "name": "columns-textblock",
+          "instances": [".three-column-text", ".value-props"]
+        }
+      ]
+    },
+    {
+      "name": "racv-hub",
+      "urls": ["https://www.racv.com.au/insurance.html", "https://www.racv.com.au/cars-transport.html", "https://www.racv.com.au/travel-experiences.html", "https://www.racv.com.au/home.html"],
+      "description": "RACV hub/category landing page with hero banner, product cards, benefits section, services, app promotion, article cards, and help footer",
+      "blocks": [
+        {
+          "name": "hero-insurance",
+          "instances": [".herobanner .cmp-basic-hero-banner"]
+        },
+        {
+          "name": "cards-quicklinks",
+          "instances": [".tiles .cmp-tile", ".cmp-icon-text"]
+        },
+        {
+          "name": "cards-feature",
+          "instances": [".cmp-related-information .cmp-articleCard"]
+        },
+        {
+          "name": "columns-appfeature",
+          "instances": [".cmp-generic-banner.prod-brand"]
+        },
+        {
+          "name": "columns-textblock",
+          "instances": [".cmp-contact-footer"]
+        }
+      ]
+    }
+  ]
+}

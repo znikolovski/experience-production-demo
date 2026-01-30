@@ -1,0 +1,40 @@
+{
+  "variantName": "cards-product",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-01-28T03:31:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.securbankdemo.com/",
+    "originPage": "SecurBank homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "standard",
+    "purpose": "product-showcase",
+    "imagePattern": "top-image"
+  },
+  "contentPattern": {
+    "structure": "image + heading + description + CTA button",
+    "buttonCount": 1,
+    "imageCount": 1,
+    "cardCount": 3
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "product showcase pages",
+      "service offerings",
+      "feature highlights with images"
+    ],
+    "notSuitableFor": [
+      "text-only cards",
+      "icon-based feature lists",
+      "testimonials"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/content/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-01-28T03:31:00.000Z"
+  }
+}

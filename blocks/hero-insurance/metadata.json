@@ -1,0 +1,40 @@
+{
+  "variantName": "hero-insurance",
+  "baseBlock": "hero",
+  "version": "1.0.0",
+  "created": "2026-01-28T03:48:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.racv.com.au/",
+    "originPage": "RACV homepage",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "brand-blue",
+    "density": "spacious",
+    "purpose": "insurance-hero",
+    "imagePattern": "large-background"
+  },
+  "contentPattern": {
+    "structure": "heading + subheading + CTA button",
+    "buttonCount": 1,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "insurance product pages",
+      "service landing pages",
+      "promotional hero sections"
+    ],
+    "notSuitableFor": [
+      "pages requiring login forms",
+      "banking authentication pages"
+    ]
+  },
+  "usage": {
+    "pagesUsing": [
+      "/content/index"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-01-29T22:05:17.260Z"
+  }
+}
