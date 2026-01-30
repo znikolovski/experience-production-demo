@@ -1,123 +1,125 @@
 /*
  * RACV Hero Block Styles
- * Full-width hero with background image, content overlay, and CTA
+ * Layout: Image at top, text content below on blue background
+ * Matches racv.com.au homepage hero pattern
  */
 
-/* Container reset */
+/* Container styling */
+.hero-container {
+  background-color: var(--color-primary-blue);
+}
+
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
 }
 
-/* Hero block base */
+/* Hero block base - stack vertically */
 .hero {
-  position: relative;
-  min-height: 400px;
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
   background-color: var(--color-primary-blue);
-  overflow: hidden;
 }
 
-/* Background image container */
+/* Image container - full width at top */
+.hero > div:has(picture) {
+  width: 100%;
+  order: -1; /* Ensure image comes first */
+}
+
 .hero picture {
-  position: absolute;
-  z-index: 1;
-  inset: 0;
+  display: block;
+  width: 100%;
 }
 
 .hero img {
-  object-fit: cover;
+  display: block;
   width: 100%;
-  height: 100%;
+  height: auto;
+  max-height: 450px;
+  object-fit: cover;
+  object-position: center;
 }
 
-/* Content area */
+/* Content area - below image on blue */
 .hero > div:not(:has(picture)) {
-  position: relative;
-  z-index: 2;
+  padding: var(--spacing-l) var(--spacing-l);
+  max-width: var(--content-max-width);
+  margin: 0 auto;
   width: 100%;
-  padding: var(--spacing-xl) var(--spacing-l);
-  background: linear-gradient(to top, rgba(0, 103, 246, 0.95) 0%, rgba(0, 103, 246, 0.8) 50%, transparent 100%);
+  box-sizing: border-box;
+}
+
+/* First content div with heading */
+.hero > div:not(:has(picture)):first-of-type {
+  padding-top: var(--spacing-xl);
 }
 
 /* Hero title */
 .hero h1 {
-  max-width: var(--content-max-width);
-  margin: 0 auto var(--spacing-s);
-  color: var(--color-text-white);
+  margin: 0 0 var(--spacing-s);
+  color: var(--color-dark-navy);
   font-size: var(--heading-font-size-xxl);
-  font-weight: 400;
-  line-height: 1.43;
+  font-weight: 600;
+  line-height: 1.3;
 }
 
 /* Hero description */
 .hero p {
-  max-width: var(--content-max-width);
-  margin: 0 auto var(--spacing-m);
-  color: var(--color-text-white);
+  margin: 0 0 var(--spacing-m);
+  color: var(--color-text-secondary);
   font-size: var(--body-font-size-m);
-  opacity: 0.95;
+  line-height: 1.5;
 }
 
 /* Hero CTA button */
-.hero a.button {
+.hero a.button,
+.hero a:any-link:not(:has(img)) {
+  display: inline-block;
   background-color: var(--color-primary-yellow);
   color: var(--color-primary-blue);
   border-radius: var(--button-border-radius);
   padding: var(--button-padding);
   font-family: var(--heading-font-family);
   font-weight: var(--button-font-weight);
+  font-size: var(--button-font-size);
   transition: var(--button-transition);
+  text-decoration: none;
+  margin: var(--spacing-s) 0 var(--spacing-xl);
 }
 
-.hero a.button:hover {
+.hero a.button:hover,
+.hero a:any-link:not(:has(img)):hover {
   background-color: #e6c800;
-}
-
-/* Secondary button variant */
-.hero a.button.secondary {
-  background-color: transparent;
-  border: 2px solid var(--color-text-white);
-  color: var(--color-text-white);
-}
-
-.hero a.button.secondary:hover {
-  background-color: var(--color-text-white);
-  color: var(--color-primary-blue);
 }
 
 /* Desktop styles */
 @media (width >= 900px) {
-  .hero {
-    min-height: 500px;
-    align-items: center;
+  .hero img {
+    max-height: 500px;
   }
 
   .hero > div:not(:has(picture)) {
-    padding: var(--spacing-xxl) var(--spacing-xl);
-    background: linear-gradient(to right, rgba(0, 103, 246, 0.95) 0%, rgba(0, 103, 246, 0.7) 50%, transparent 70%);
+    padding: var(--spacing-l) var(--spacing-xl);
+  }
+
+  .hero > div:not(:has(picture)):first-of-type {
+    padding-top: var(--spacing-xxl);
   }
 
   .hero h1 {
     font-size: 36px;
-    max-width: 50%;
-    margin-left: 0;
   }
 
   .hero p {
-    max-width: 45%;
-    margin-left: 0;
+    font-size: var(--body-font-size-l);
   }
 }
 
+/* Large desktop */
 @media (width >= 1200px) {
-  .hero {
-    min-height: 550px;
-  }
-
-  .hero > div:not(:has(picture)) {
-    padding: var(--spacing-xxxl) var(--spacing-xl);
+  .hero img {
+    max-height: 550px;
   }
 
   .hero h1 {
