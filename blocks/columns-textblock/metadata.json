@@ -1,0 +1,41 @@
+{
+  "variantName": "columns-textblock",
+  "baseBlock": "columns",
+  "version": "1.0.0",
+  "created": "2026-01-28T03:48:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.racv.com.au/",
+    "originPage": "RACV homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "info-blocks",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "heading + text + link | heading + text + link | heading + text + link",
+    "buttonCount": 3,
+    "imageCount": 0,
+    "columnCount": 3
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "value proposition sections",
+      "multi-column text layouts",
+      "feature comparison blocks"
+    ],
+    "notSuitableFor": [
+      "image-heavy layouts",
+      "app download sections"
+    ]
+  },
+  "usage": {
+    "pagesUsing": [
+      "/content/index"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-01-29T22:05:17.573Z"
+  }
+}

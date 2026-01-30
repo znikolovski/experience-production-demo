@@ -1,0 +1,33 @@
+.columns-appfeature > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.columns-appfeature img {
+  width: 100%;
+}
+
+.columns-appfeature > div > div {
+  order: 1;
+}
+
+.columns-appfeature > div > .columns-appfeature-img-col {
+  order: 0;
+}
+
+.columns-appfeature > div > .columns-appfeature-img-col img {
+  display: block;
+}
+
+@media (width >= 900px) {
+  .columns-appfeature > div {
+    align-items: center;
+    flex-direction: unset;
+    gap: 24px;
+  }
+
+  .columns-appfeature > div > div {
+    flex: 1;
+    order: unset;
+  }
+}

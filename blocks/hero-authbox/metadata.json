@@ -1,0 +1,40 @@
+{
+  "variantName": "hero-authbox",
+  "baseBlock": "hero",
+  "version": "1.0.0",
+  "created": "2026-01-28T03:31:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.securbankdemo.com/",
+    "originPage": "SecurBank homepage",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "image-background",
+    "density": "spacious",
+    "purpose": "hero-with-login",
+    "imagePattern": "fullwidth-background"
+  },
+  "contentPattern": {
+    "structure": "heading + subheading + authbox (login form)",
+    "buttonCount": 1,
+    "imageCount": 1,
+    "hasForm": true
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "banking homepages",
+      "login landing pages",
+      "pages requiring authentication prompt"
+    ],
+    "notSuitableFor": [
+      "product pages without login",
+      "simple hero sections",
+      "pages without authentication"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/content/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-01-28T03:31:00.000Z"
+  }
+}

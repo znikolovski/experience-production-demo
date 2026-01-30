@@ -1,0 +1,41 @@
+{
+  "variantName": "table-forex",
+  "baseBlock": "table",
+  "version": "1.0.0",
+  "created": "2026-01-28T03:31:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.securbankdemo.com/",
+    "originPage": "SecurBank homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "exchange-rates",
+    "imagePattern": "icon-flags"
+  },
+  "contentPattern": {
+    "structure": "heading + table rows with flag icons, currency name, code, rate",
+    "buttonCount": 0,
+    "imageCount": 4,
+    "rowCount": 4,
+    "columnCount": 4
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "exchange rate displays",
+      "currency conversion tables",
+      "financial data tables with icons"
+    ],
+    "notSuitableFor": [
+      "simple text tables",
+      "pricing comparison tables",
+      "feature comparison matrices"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/content/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-01-28T03:31:00.000Z"
+  }
+}
