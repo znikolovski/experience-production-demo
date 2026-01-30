@@ -14,6 +14,24 @@ import {
 } from './aem.js';
 
 /**
+ * Moves instrumentation attributes from one element to another.
+ * Used for analytics and tracking when DOM elements are restructured.
+ * @param {Element} from Source element
+ * @param {Element} to Target element
+ */
+export function moveInstrumentation(from, to) {
+  if (!from || !to) return;
+  const dominated = ['data-aue-resource', 'data-aue-type', 'data-aue-prop', 'data-aue-label', 'data-aue-model', 'data-aue-filter', 'data-aue-component'];
+  dominated.forEach((attr) => {
+    const value = from.getAttribute(attr);
+    if (value) {
+      to.setAttribute(attr, value);
+      from.removeAttribute(attr);
+    }
+  });
+}
+
+/**
  * Builds hero block and prepends to main in a new section.
  * @param {Element} main The container element
  */

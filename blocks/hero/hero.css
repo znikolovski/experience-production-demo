@@ -1,27 +1,29 @@
+/*
+ * RACV Hero Block Styles
+ * Full-width hero with background image, content overlay, and CTA
+ */
+
+/* Container reset */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
 }
 
+/* Hero block base */
 .hero {
   position: relative;
-  padding: 40px 24px;
-  min-height: 300px;
+  min-height: 400px;
+  display: flex;
+  align-items: flex-end;
+  background-color: var(--color-primary-blue);
+  overflow: hidden;
 }
 
-.hero h1 {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  color: var(--background-color);
-}
-
+/* Background image container */
 .hero picture {
   position: absolute;
-  z-index: -1;
+  z-index: 1;
   inset: 0;
-  object-fit: cover;
-  box-sizing: border-box;
 }
 
 .hero img {
@@ -30,8 +32,95 @@
   height: 100%;
 }
 
+/* Content area */
+.hero > div:not(:has(picture)) {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: var(--spacing-xl) var(--spacing-l);
+  background: linear-gradient(to top, rgba(0, 103, 246, 0.95) 0%, rgba(0, 103, 246, 0.8) 50%, transparent 100%);
+}
+
+/* Hero title */
+.hero h1 {
+  max-width: var(--content-max-width);
+  margin: 0 auto var(--spacing-s);
+  color: var(--color-text-white);
+  font-size: var(--heading-font-size-xxl);
+  font-weight: 400;
+  line-height: 1.43;
+}
+
+/* Hero description */
+.hero p {
+  max-width: var(--content-max-width);
+  margin: 0 auto var(--spacing-m);
+  color: var(--color-text-white);
+  font-size: var(--body-font-size-m);
+  opacity: 0.95;
+}
+
+/* Hero CTA button */
+.hero a.button {
+  background-color: var(--color-primary-yellow);
+  color: var(--color-primary-blue);
+  border-radius: var(--button-border-radius);
+  padding: var(--button-padding);
+  font-family: var(--heading-font-family);
+  font-weight: var(--button-font-weight);
+  transition: var(--button-transition);
+}
+
+.hero a.button:hover {
+  background-color: #e6c800;
+}
+
+/* Secondary button variant */
+.hero a.button.secondary {
+  background-color: transparent;
+  border: 2px solid var(--color-text-white);
+  color: var(--color-text-white);
+}
+
+.hero a.button.secondary:hover {
+  background-color: var(--color-text-white);
+  color: var(--color-primary-blue);
+}
+
+/* Desktop styles */
 @media (width >= 900px) {
   .hero {
-    padding: 40px 32px;
+    min-height: 500px;
+    align-items: center;
+  }
+
+  .hero > div:not(:has(picture)) {
+    padding: var(--spacing-xxl) var(--spacing-xl);
+    background: linear-gradient(to right, rgba(0, 103, 246, 0.95) 0%, rgba(0, 103, 246, 0.7) 50%, transparent 70%);
+  }
+
+  .hero h1 {
+    font-size: 36px;
+    max-width: 50%;
+    margin-left: 0;
+  }
+
+  .hero p {
+    max-width: 45%;
+    margin-left: 0;
+  }
+}
+
+@media (width >= 1200px) {
+  .hero {
+    min-height: 550px;
+  }
+
+  .hero > div:not(:has(picture)) {
+    padding: var(--spacing-xxxl) var(--spacing-xl);
+  }
+
+  .hero h1 {
+    font-size: 42px;
   }
 }

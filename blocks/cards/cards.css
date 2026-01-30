@@ -1,27 +1,180 @@
+/*
+ * RACV Cards Block Styles
+ * Grid of cards with images, titles, descriptions and CTAs
+ */
+
+/* Cards container */
 .cards > ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-l);
 }
 
+/* Individual card */
 .cards > ul > li {
-  border: 1px solid #dadada;
-  background-color: var(--background-color);
+  background-color: var(--color-bg-white);
+  border-radius: var(--border-radius-l);
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
-.cards .cards-card-body {
-  margin: 16px;
+.cards > ul > li:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
 }
 
+/* Card image */
 .cards .cards-card-image {
   line-height: 0;
+  overflow: hidden;
 }
 
 .cards > ul > li img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 10;
   object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.cards > ul > li:hover img {
+  transform: scale(1.02);
+}
+
+/* Card body/content */
+.cards .cards-card-body {
+  padding: var(--spacing-l);
+}
+
+/* Card title */
+.cards .cards-card-body h3,
+.cards .cards-card-body h4 {
+  margin: 0 0 var(--spacing-s);
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-m);
+  font-weight: 600;
+  color: var(--color-dark-navy);
+  line-height: 1.4;
+}
+
+/* Card description */
+.cards .cards-card-body p {
+  margin: 0 0 var(--spacing-m);
+  color: var(--color-text-secondary);
+  font-size: var(--body-font-size-s);
+  line-height: 1.6;
+}
+
+/* Card buttons container */
+.cards .cards-card-body .button-container {
+  display: flex;
+  gap: var(--spacing-s);
+  flex-wrap: wrap;
+}
+
+/* Card primary button */
+.cards .cards-card-body a.button {
+  background-color: var(--color-primary-yellow);
+  color: var(--color-primary-blue);
+  border-radius: var(--button-border-radius);
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: var(--button-font-weight);
+  margin: 0;
+}
+
+.cards .cards-card-body a.button:hover {
+  background-color: #e6c800;
+}
+
+/* Card secondary button */
+.cards .cards-card-body a.button.secondary {
+  background-color: transparent;
+  border: 2px solid var(--color-primary-blue);
+  color: var(--color-primary-blue);
+}
+
+.cards .cards-card-body a.button.secondary:hover {
+  background-color: var(--color-primary-blue);
+  color: var(--color-text-white);
+}
+
+/* Card link (text link style) */
+.cards .cards-card-body a:not(.button) {
+  color: var(--color-primary-blue);
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.cards .cards-card-body a:not(.button):hover {
+  color: var(--color-dark-blue);
+}
+
+.cards .cards-card-body a:not(.button)::after {
+  content: "→";
+  transition: transform 0.2s ease;
+}
+
+.cards .cards-card-body a:not(.button):hover::after {
+  transform: translateX(4px);
+}
+
+/* Desktop: 3 columns */
+@media (width >= 900px) {
+  .cards > ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Large desktop: larger cards */
+@media (width >= 1200px) {
+  .cards > ul {
+    gap: var(--spacing-xl);
+  }
+
+  .cards .cards-card-body {
+    padding: var(--spacing-xl);
+  }
+}
+
+/* ========================================
+   Card Variants
+   ======================================== */
+
+/* Compact cards (smaller padding, no shadow) */
+.cards.compact > ul > li {
+  box-shadow: none;
+  border: 1px solid var(--border-color);
+}
+
+.cards.compact .cards-card-body {
+  padding: var(--spacing-m);
+}
+
+/* Feature cards (larger images, more prominent) */
+.cards.feature > ul > li img {
+  aspect-ratio: 16 / 9;
+}
+
+.cards.feature .cards-card-body h3 {
+  font-size: var(--heading-font-size-l);
+}
+
+/* Horizontal cards (image on side) */
+@media (width >= 600px) {
+  .cards.horizontal > ul > li {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+  }
+
+  .cards.horizontal > ul > li img {
+    aspect-ratio: 1;
+    height: 100%;
+  }
 }

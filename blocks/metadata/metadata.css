@@ -1,0 +1,8 @@
+/*
+ * Metadata Block Styles
+ * This block is hidden by default as it contains page metadata
+ */
+
+.metadata {
+  display: none;
+}
