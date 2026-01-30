@@ -1,74 +1,80 @@
 /*
  * RACV Hero Insurance Block Styles
- * Full-width hero with image right, content left with blue gradient overlay
+ * Layout: Image at top, text content below on blue background
+ * Matches racv.com.au homepage hero pattern
  */
 
 /* Container reset */
+.hero-insurance-container {
+  background-color: var(--color-primary-blue);
+}
+
 .hero-insurance-container .hero-insurance-wrapper {
   max-width: unset;
   padding: 0;
 }
 
-/* Hero block base */
+/* Hero block base - stack vertically */
 .hero-insurance {
-  position: relative;
-  min-height: 350px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   background-color: var(--color-primary-blue);
-  overflow: hidden;
 }
 
-/* Background image - positioned to the right on desktop */
+/* Image container - full width at top */
+.hero-insurance > div:first-child {
+  width: 100%;
+  position: relative;
+}
+
 .hero-insurance picture {
-  position: absolute;
-  z-index: 1;
-  inset: 0;
+  display: block;
+  width: 100%;
 }
 
 .hero-insurance img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 450px;
   object-fit: cover;
-  object-position: center right;
-  width: 100%;
-  height: 100%;
+  object-position: center;
 }
 
-/* Content wrapper - all non-picture divs */
-.hero-insurance > div {
-  position: relative;
-  z-index: 2;
-}
-
-/* First div with content gets the gradient */
-.hero-insurance > div:first-child:not(:has(picture)),
-.hero-insurance > div:nth-child(2):not(:has(picture)) {
-  width: 100%;
-  padding: var(--spacing-xl) var(--spacing-l);
-  background: linear-gradient(to top, rgba(0, 103, 246, 0.95) 0%, rgba(0, 103, 246, 0.85) 60%, rgba(0, 103, 246, 0.6) 100%);
+/* Content area - below image */
+.hero-insurance > div:not(:first-child) {
+  padding: 0 var(--spacing-l);
 }
 
 /* Hero title */
 .hero-insurance h1 {
   max-width: var(--content-max-width);
-  margin: 0 auto var(--spacing-s);
-  color: var(--color-text-white);
+  margin: var(--spacing-l) auto var(--spacing-s);
+  padding: 0 var(--spacing-l);
+  color: var(--color-dark-navy);
   font-size: var(--heading-font-size-xxl);
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.3;
 }
 
 /* Hero description */
-.hero-insurance p {
+.hero-insurance p,
+.hero-insurance > div > div:not(:has(h1)):not(:has(a)):not(:has(picture)) {
   max-width: var(--content-max-width);
   margin: 0 auto var(--spacing-m);
-  color: var(--color-text-white);
+  padding: 0 var(--spacing-l);
+  color: var(--color-text-secondary);
   font-size: var(--body-font-size-m);
-  opacity: 0.95;
   line-height: 1.5;
 }
 
 /* Hero CTA button */
-.hero-insurance a.button {
+.hero-insurance a.button,
+.hero-insurance a:any-link {
+  display: inline-block;
+  max-width: var(--content-max-width);
+  margin: var(--spacing-s) auto var(--spacing-xl);
+  margin-left: var(--spacing-l);
   background-color: var(--color-primary-yellow);
   color: var(--color-primary-blue);
   border-radius: var(--button-border-radius);
@@ -78,70 +84,37 @@
   font-size: var(--button-font-size);
   transition: var(--button-transition);
   text-decoration: none;
-  display: inline-block;
-  margin: var(--spacing-s) 0;
 }
 
-.hero-insurance a.button:hover {
+.hero-insurance a.button:hover,
+.hero-insurance a:hover {
   background-color: #e6c800;
 }
 
-/* Tablet styles */
-@media (width >= 600px) {
-  .hero-insurance {
-    min-height: 400px;
-  }
-
-  .hero-insurance > div:first-child:not(:has(picture)),
-  .hero-insurance > div:nth-child(2):not(:has(picture)) {
-    padding: var(--spacing-xxl) var(--spacing-xl);
-  }
-}
-
-/* Desktop styles */
+/* Desktop styles - larger text */
 @media (width >= 900px) {
-  .hero-insurance {
-    min-height: 450px;
-  }
-
-  .hero-insurance > div:first-child:not(:has(picture)),
-  .hero-insurance > div:nth-child(2):not(:has(picture)) {
-    padding: var(--spacing-xxl) var(--spacing-xl);
-    background: linear-gradient(to right, rgba(0, 103, 246, 0.95) 0%, rgba(0, 103, 246, 0.85) 40%, rgba(0, 103, 246, 0.5) 60%, transparent 75%);
+  .hero-insurance img {
+    max-height: 500px;
   }
 
   .hero-insurance h1 {
     font-size: 36px;
-    max-width: 50%;
-    margin-left: 0;
-    margin-right: 0;
+    margin-top: var(--spacing-xl);
   }
 
-  .hero-insurance p {
-    max-width: 45%;
-    margin-left: 0;
-    margin-right: 0;
+  .hero-insurance p,
+  .hero-insurance > div > div:not(:has(h1)):not(:has(a)):not(:has(picture)) {
     font-size: var(--body-font-size-l);
   }
 }
 
 /* Large desktop */
 @media (width >= 1200px) {
-  .hero-insurance {
-    min-height: 500px;
-  }
-
-  .hero-insurance > div:first-child:not(:has(picture)),
-  .hero-insurance > div:nth-child(2):not(:has(picture)) {
-    padding: var(--spacing-xxxl) var(--spacing-xl);
+  .hero-insurance img {
+    max-height: 550px;
   }
 
   .hero-insurance h1 {
     font-size: 42px;
-    max-width: 45%;
-  }
-
-  .hero-insurance p {
-    max-width: 40%;
   }
 }

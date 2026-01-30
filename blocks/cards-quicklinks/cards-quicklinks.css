@@ -1,12 +1,13 @@
 /*
  * RACV Cards Quicklinks Block Styles
- * Horizontal row of quick action links with icons
+ * White card with 2x3 grid of quick action links
+ * Matches racv.com.au homepage quicklinks bar
  */
 
-/* Container styling */
+/* Container styling - white card with shadow */
 .cards-quicklinks-container {
   background-color: var(--color-bg-white);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   border-radius: var(--border-radius-l);
   margin: calc(-1 * var(--spacing-xl)) var(--spacing-m) var(--spacing-xl);
   position: relative;
@@ -19,128 +20,153 @@
   padding: 0;
 }
 
-/* List reset */
-.cards-quicklinks > ul {
-  list-style: none;
-  margin: 0;
-  padding: var(--spacing-m);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+/* Block wrapper - grid layout */
+.cards-quicklinks {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 0;
 }
 
-/* Individual items */
-.cards-quicklinks > ul > li {
+/* Individual items (direct div children) */
+.cards-quicklinks > div {
   display: flex;
   align-items: center;
-  padding: var(--spacing-s) var(--spacing-m);
-  border-right: 1px solid var(--border-color);
-  flex: 1 1 auto;
-  min-width: 140px;
   justify-content: center;
+  padding: var(--spacing-m) var(--spacing-l);
+  border-right: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  min-height: 60px;
 }
 
-.cards-quicklinks > ul > li:last-child {
+/* Remove right border on last column */
+.cards-quicklinks > div:nth-child(3n) {
   border-right: none;
 }
 
-/* Card body */
-.cards-quicklinks .cards-quicklinks-card-body {
-  padding: 0;
+/* Remove bottom border on last row (items 4, 5, 6) */
+.cards-quicklinks > div:nth-child(n+4) {
+  border-bottom: none;
 }
 
-.cards-quicklinks .cards-quicklinks-card-body p {
-  margin: 0;
+/* Inner content wrapper */
+.cards-quicklinks > div > div {
+  text-align: center;
 }
 
 /* Links */
-.cards-quicklinks .cards-quicklinks-card-body a {
+.cards-quicklinks a {
   color: var(--color-primary-blue);
   text-decoration: none;
   font-weight: 500;
   font-size: var(--body-font-size-s);
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: var(--spacing-s);
-  white-space: nowrap;
+  transition: color 0.15s ease;
 }
 
-.cards-quicklinks .cards-quicklinks-card-body a:hover {
+.cards-quicklinks a:hover {
   color: var(--color-dark-blue);
 }
 
 /* Arrow icon after link */
-.cards-quicklinks .cards-quicklinks-card-body a::after {
+.cards-quicklinks a::after {
   content: "→";
-  font-size: 14px;
+  font-size: 12px;
   transition: transform 0.15s ease;
 }
 
-.cards-quicklinks .cards-quicklinks-card-body a:hover::after {
+.cards-quicklinks a:hover::after {
   transform: translateX(3px);
 }
 
-/* Icon images */
-.cards-quicklinks .cards-quicklinks-card-image {
-  display: none; /* Hide image column by default */
+/* Strong text (category headers) */
+.cards-quicklinks strong {
+  color: var(--color-dark-navy);
+  font-weight: 600;
+  font-size: var(--body-font-size-s);
 }
 
-/* Mobile: Stack vertically */
+/* Mobile: 2 columns */
 @media (width < 600px) {
   .cards-quicklinks-container {
     margin: calc(-1 * var(--spacing-l)) var(--spacing-s) var(--spacing-l);
     border-radius: var(--border-radius-m);
   }
 
-  .cards-quicklinks > ul {
-    flex-direction: column;
-    padding: var(--spacing-s);
+  .cards-quicklinks {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .cards-quicklinks > ul > li {
-    border-right: none;
-    border-bottom: 1px solid var(--border-color);
+  .cards-quicklinks > div {
     padding: var(--spacing-m);
-    justify-content: flex-start;
-    min-width: unset;
-    width: 100%;
   }
 
-  .cards-quicklinks > ul > li:last-child {
-    border-bottom: none;
-  }
-}
-
-/* Tablet: 2 rows of 3 */
-@media (width >= 600px) and (width < 900px) {
-  .cards-quicklinks > ul > li {
-    flex: 0 0 calc(33.333% - 1px);
-    border-bottom: 1px solid var(--border-color);
+  /* Adjust borders for 2-column layout */
+  .cards-quicklinks > div:nth-child(3n) {
+    border-right: 1px solid var(--border-color);
   }
 
-  .cards-quicklinks > ul > li:nth-child(3) {
+  .cards-quicklinks > div:nth-child(2n) {
     border-right: none;
   }
 
-  .cards-quicklinks > ul > li:nth-last-child(-n+3) {
+  .cards-quicklinks > div:nth-child(n+4) {
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .cards-quicklinks > div:nth-last-child(-n+2) {
     border-bottom: none;
+  }
+
+  .cards-quicklinks a {
+    font-size: var(--body-font-size-xs);
   }
 }
 
-/* Desktop: Single row */
-@media (width >= 900px) {
+/* Tablet and Desktop: 3 columns, 2 rows */
+@media (width >= 600px) {
   .cards-quicklinks-container {
     margin: calc(-1 * var(--spacing-xxl)) auto var(--spacing-xl);
+    max-width: calc(var(--content-max-width) - var(--spacing-xxl));
+  }
+
+  .cards-quicklinks > div {
+    padding: var(--spacing-l) var(--spacing-xl);
+  }
+}
+
+/* Large desktop */
+@media (width >= 1200px) {
+  .cards-quicklinks-container {
     max-width: calc(var(--content-max-width) - var(--spacing-xl));
   }
 
-  .cards-quicklinks > ul {
-    padding: var(--spacing-l) var(--spacing-m);
+  .cards-quicklinks a {
+    font-size: var(--body-font-size-m);
   }
+}
 
-  .cards-quicklinks > ul > li {
-    flex: 1;
-    min-width: unset;
-  }
+/* UL-based structure fallback (if block JS decorates with ul/li) */
+.cards-quicklinks > ul {
+  display: contents;
+}
+
+.cards-quicklinks > ul > li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-m) var(--spacing-l);
+  border-right: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  min-height: 60px;
+  list-style: none;
+}
+
+.cards-quicklinks > ul > li:nth-child(3n) {
+  border-right: none;
+}
+
+.cards-quicklinks > ul > li:nth-child(n+4) {
+  border-bottom: none;
 }
