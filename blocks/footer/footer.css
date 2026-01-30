@@ -1,20 +1,114 @@
+/*
+ * RACV Footer Block Styles
+ * Dark navy footer with links and legal info
+ */
+
 footer {
-  background-color: var(--light-color);
+  background-color: var(--color-dark-navy);
+  color: var(--color-text-white);
   font-size: var(--body-font-size-xs);
 }
 
 footer .footer > div {
   margin: auto;
-  max-width: 1200px;
-  padding: 40px 24px 24px;
+  max-width: var(--content-max-width);
+  padding: var(--spacing-xxl) var(--spacing-l) var(--spacing-l);
 }
 
 footer .footer p {
-  margin: 0;
+  margin: 0 0 var(--spacing-s);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+footer .footer a:any-link {
+  color: var(--color-text-white);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+footer .footer a:any-link:hover {
+  color: var(--color-primary-yellow);
+}
+
+/* Footer headings */
+footer .footer h2,
+footer .footer h3,
+footer .footer h4 {
+  color: var(--color-text-white);
+  font-size: var(--body-font-size-m);
+  font-weight: 600;
+  margin: 0 0 var(--spacing-m);
+}
+
+/* Footer lists */
+footer .footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--spacing-l);
+}
+
+footer .footer li {
+  margin-bottom: var(--spacing-s);
+}
+
+/* Footer columns layout */
+footer .footer .columns > div {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-l);
+}
+
+@media (width >= 600px) {
+  footer .footer .columns > div {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (width >= 900px) {
   footer .footer > div {
-    padding: 40px 32px 24px;
+    padding: var(--spacing-xxl) var(--spacing-xl) var(--spacing-l);
+  }
+
+  footer .footer .columns > div {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-xl);
   }
 }
+
+/* Footer bottom section (legal/copyright) */
+footer .footer .section:last-child {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: var(--spacing-l);
+  margin-top: var(--spacing-l);
+}
+
+footer .footer .section:last-child p {
+  font-size: var(--body-font-size-xs);
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Social links */
+footer .footer .icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-right: var(--spacing-s);
+}
+
+footer .footer .icon img {
+  filter: brightness(0) invert(1);
+  transition: opacity 0.15s ease;
+}
+
+footer .footer .icon:hover img {
+  opacity: 0.8;
+}
+
+/* App store badges */
+footer .footer img[alt*="App Store"],
+footer .footer img[alt*="Google Play"] {
+  height: 40px;
+  width: auto;
+  margin-right: var(--spacing-s);
+}
+

@@ -1,33 +1,206 @@
+/*
+ * RACV Columns Block Styles
+ * Flexible multi-column layout with image and text content
+ */
+
+/* Base columns container */
 .columns > div {
   display: flex;
   flex-direction: column;
+  gap: var(--spacing-l);
 }
 
-.columns img {
-  width: 100%;
-}
-
+/* All column children */
 .columns > div > div {
   order: 1;
 }
 
+/* Image column ordering (image first on mobile) */
 .columns > div > .columns-img-col {
   order: 0;
 }
 
-.columns > div > .columns-img-col img {
+/* Column images */
+.columns img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius-l);
   display: block;
 }
 
+/* Column text content */
+.columns h2,
+.columns h3 {
+  margin: 0 0 var(--spacing-s);
+  font-family: var(--heading-font-family);
+  font-weight: 600;
+  color: var(--color-dark-navy);
+  line-height: 1.4;
+}
+
+.columns h2 {
+  font-size: var(--heading-font-size-xl);
+}
+
+.columns h3 {
+  font-size: var(--heading-font-size-l);
+}
+
+.columns p {
+  margin: 0 0 var(--spacing-m);
+  color: var(--color-text-secondary);
+  font-size: var(--body-font-size-s);
+  line-height: 1.6;
+}
+
+/* Column buttons */
+.columns a.button {
+  background-color: var(--color-primary-yellow);
+  color: var(--color-primary-blue);
+  border-radius: var(--button-border-radius);
+  padding: var(--button-padding);
+  font-weight: var(--button-font-weight);
+  transition: var(--button-transition);
+}
+
+.columns a.button:hover {
+  background-color: #e6c800;
+}
+
+.columns a.button.secondary {
+  background-color: transparent;
+  border: 2px solid var(--color-primary-blue);
+  color: var(--color-primary-blue);
+}
+
+.columns a.button.secondary:hover {
+  background-color: var(--color-primary-blue);
+  color: var(--color-text-white);
+}
+
+/* Column links (text style) */
+.columns a:not(.button) {
+  color: var(--color-primary-blue);
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.columns a:not(.button):hover {
+  color: var(--color-dark-blue);
+}
+
+/* Lists in columns */
+.columns ul {
+  margin: 0 0 var(--spacing-m);
+  padding-left: var(--spacing-l);
+}
+
+.columns li {
+  margin-bottom: var(--spacing-s);
+  color: var(--color-text-secondary);
+  font-size: var(--body-font-size-s);
+  line-height: 1.6;
+}
+
+/* Desktop: Side-by-side layout */
 @media (width >= 900px) {
   .columns > div {
+    flex-direction: row;
     align-items: center;
-    flex-direction: unset;
-    gap: 24px;
+    gap: var(--spacing-xxl);
   }
 
   .columns > div > div {
     flex: 1;
     order: unset;
   }
+
+  .columns > div > .columns-img-col {
+    order: unset;
+  }
 }
+
+/* Large desktop */
+@media (width >= 1200px) {
+  .columns > div {
+    gap: var(--spacing-xxxl);
+  }
+}
+
+/* ========================================
+   Column Variants
+   ======================================== */
+
+/* Centered columns (text centered) */
+.columns.centered > div {
+  text-align: center;
+}
+
+.columns.centered > div > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Feature columns (larger text, more spacing) */
+.columns.feature h2 {
+  font-size: var(--heading-font-size-xxl);
+}
+
+.columns.feature p {
+  font-size: var(--body-font-size-m);
+}
+
+/* Reversed columns (image on right on desktop) */
+@media (width >= 900px) {
+  .columns.reversed > div {
+    flex-direction: row-reverse;
+  }
+}
+
+/* Stacked columns (always vertical) */
+.columns.stacked > div {
+  flex-direction: column;
+}
+
+/* App feature columns (for app store badges, phone mockups) */
+.columns.app-feature img {
+  max-width: 300px;
+  margin: 0 auto;
+  border-radius: 0;
+}
+
+.columns.app-feature .button-container {
+  display: flex;
+  gap: var(--spacing-m);
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+@media (width >= 900px) {
+  .columns.app-feature img {
+    max-width: 400px;
+  }
+}
+
+/* Icon columns (small icon with text) */
+.columns.icon > div > div {
+  display: flex;
+  gap: var(--spacing-m);
+  align-items: flex-start;
+}
+
+.columns.icon img {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 0;
+}
+
+.columns.icon h3 {
+  font-size: var(--heading-font-size-m);
+}
+

@@ -1,9 +1,15 @@
+/*
+ * RACV Header Block Styles
+ * Fixed navigation with brand, sections, and tools
+ */
+
 /* header and nav layout */
 header .nav-wrapper {
-  background-color: var(--background-color);
+  background-color: var(--color-bg-white);
   width: 100%;
-  z-index: 2;
+  z-index: 100;
   position: fixed;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 header nav {
@@ -15,9 +21,9 @@ header nav {
   align-items: center;
   gap: 0 24px;
   margin: auto;
-  max-width: 1248px;
+  max-width: var(--content-max-width);
   height: var(--nav-height);
-  padding: 0 24px;
+  padding: 0 var(--spacing-l);
   font-family: var(--body-font-family);
 }
 
@@ -28,19 +34,20 @@ header nav[aria-expanded='true'] {
     'tools tools' var(--nav-height) / auto 1fr;
   overflow-y: auto;
   min-height: 100dvh;
+  background-color: var(--color-bg-white);
 }
 
 @media (width >= 900px) {
   header .nav-wrapper {
-    position: relative;
+    position: fixed;
   }
 
   header nav {
     display: flex;
     justify-content: space-between;
-    gap: 0 32px;
-    max-width: 1264px;
-    padding: 0 32px;
+    gap: 0 var(--spacing-xl);
+    max-width: calc(var(--content-max-width) + 64px);
+    padding: 0 var(--spacing-xl);
   }
 
   header nav[aria-expanded='true'] {
@@ -55,7 +62,13 @@ header nav p {
 }
 
 header nav a:any-link {
-  color: currentcolor;
+  color: var(--color-dark-navy);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+header nav a:any-link:hover {
+  color: var(--color-primary-blue);
 }
 
 /* hamburger */
@@ -72,8 +85,8 @@ header nav .nav-hamburger button {
   border: 0;
   border-radius: 0;
   padding: 0;
-  background-color: var(--background-color);
-  color: inherit;
+  background-color: transparent;
+  color: var(--color-dark-navy);
   overflow: initial;
   text-overflow: initial;
   white-space: initial;
@@ -149,8 +162,14 @@ header .nav-brand {
 }
 
 header nav .nav-brand img {
-  width: 128px;
+  width: 100px;
   height: auto;
+}
+
+@media (width >= 900px) {
+  header nav .nav-brand img {
+    width: 128px;
+  }
 }
 
 /* sections */
@@ -165,6 +184,7 @@ header nav[aria-expanded='true'] .nav-sections {
   display: block;
   visibility: visible;
   align-self: start;
+  padding-top: var(--spacing-l);
 }
 
 header nav .nav-sections ul {
@@ -175,6 +195,7 @@ header nav .nav-sections ul {
 
 header nav .nav-sections ul > li {
   font-weight: 500;
+  color: var(--color-dark-navy);
 }
 
 header nav .nav-sections ul > li > ul {
@@ -194,6 +215,7 @@ header nav .nav-sections ul > li > ul > li {
 
   header nav[aria-expanded='true'] .nav-sections {
     align-self: unset;
+    padding-top: 0;
   }
 
   header nav .nav-sections .nav-drop {
@@ -224,7 +246,7 @@ header nav .nav-sections ul > li > ul > li {
 
   header nav .nav-sections ul {
     display: flex;
-    gap: 24px;
+    gap: var(--spacing-l);
     margin: 0;
   }
 
@@ -242,10 +264,12 @@ header nav .nav-sections ul > li > ul > li {
     display: block;
     position: absolute;
     left: -24px;
-    width: 200px;
+    width: 220px;
     top: 150%;
-    padding: 16px;
-    background-color: var(--light-color);
+    padding: var(--spacing-m);
+    background-color: var(--color-bg-white);
+    border-radius: var(--border-radius-m);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
     white-space: initial;
   }
 
@@ -253,16 +277,16 @@ header nav .nav-sections ul > li > ul > li {
     content: '';
     position: absolute;
     top: -8px;
-    left: 16px;
+    left: 24px;
     width: 0;
     height: 0;
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
-    border-bottom: 8px solid var(--light-color);
+    border-bottom: 8px solid var(--color-bg-white);
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul > li {
-    padding: 8px 0;
+    padding: var(--spacing-s) 0;
   }
 }
 
@@ -270,3 +294,17 @@ header nav .nav-sections ul > li > ul > li {
 header nav .nav-tools {
   grid-area: tools;
 }
+
+header nav .nav-tools a.button {
+  background-color: var(--color-primary-yellow);
+  color: var(--color-primary-blue);
+  border-radius: var(--button-border-radius);
+  padding: 8px 16px;
+  font-size: var(--body-font-size-s);
+  font-weight: var(--button-font-weight);
+}
+
+header nav .nav-tools a.button:hover {
+  background-color: #e6c800;
+}
+
